@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kantin Jujur</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .menu-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      background-color: #fafafa;
+      transition: box-shadow 0.3s ease;
+    }
+    .menu-item:hover {
+      box-shadow: 0 0 8px #4CAF50;
+    }
+    .menu-item h3 {
+      margin-top: 0;
+      color: #4CAF50;
+    }
+    .price {
+      font-weight: bold;
+      color: #333;
+    }
+    .info {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #4CAF50;
+      color: white;
+      margin-top: 30px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Kantin Jujur
+  </header>
+
+  <main>
+    <section>
+      <h2>Menu Makanan</h2>
+      <div class="menu-list" id="menu-list">
+        <!-- Menu items akan muncul di sini -->
+      </div>
+    </section>
+
+    <section>
+      <h2>Informasi Kantin</h2>
+      <p class="info"><strong>Jam Buka:</strong> 08.00 - 17.00 WIB</p>
+      <p class="info"><strong>Kontak:</strong> 0812-3456-7890</p>
+      <p class="info"><strong>Alamat:</strong> Jalan Kantin No. 123, Desa Meranjat</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Kantin Jujur. All rights reserved.
+  </footer>
+
+  <script>
+    // Data menu makanan (bisa diubah atau dikembangkan)
+    const menu = [
+      { nama: "Nasi Goreng", harga: 15000, deskripsi: "Nasi goreng spesial dengan telur dan ayam" },
+      { nama: "Mie Ayam", harga: 10000, deskripsi: "Mie dengan potongan ayam dan kuah kaldu" },
+      { nama: "Es Teh Manis", harga: 3000, deskripsi: "Es teh manis segar" },
+      { nama: "Sate Ayam", harga: 15000, deskripsi: "Sate ayam dengan bumbu kacang" },
+      { nama: "Pecel Lele", harga: 18000, deskripsi: "Lele goreng dengan sambal dan lalapan" },
+      { nama: "Jus Jeruk", harga: 5000, deskripsi: "Jus jeruk segar tanpa gula tambahan" }
+    ];
+
+    const menuList = document.getElementById("menu-list");
+
+    menu.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "menu-item";
+
+      div.innerHTML = `
+        <h3>${item.nama}</h3>
+        <p>${item.deskripsi}</p>
+        <p class="price">Rp ${item.harga.toLocaleString('id-ID')}</p>
+      `;
+
+      menuList.appendChild(div);
+    });
+  </script>
+</body>
+</html>
